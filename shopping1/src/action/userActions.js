@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { USER_LOGIN_ACCESS, USER_LOGIN_SUCCESS } from "../constants/userConstants"
+import { USER_LOGIN_ACCESS, USER_LOGIN_FAIL, USER_LOGIN_SUCCESS } from "../constants/userConstants"
 
 export const login = (email, password) => async (dispatch) =>{
     try{
@@ -11,7 +11,7 @@ export const login = (email, password) => async (dispatch) =>{
                 'Content-Type': 'application/json'
             }
         }
-        const {data} = await axios.post('/osfow/user/login', {email, password, config })
+        const {data} = await axios.post('http://localhost:3300/osfow/user/login', {email, password, config })
         
         dispatch({
             type: USER_LOGIN_SUCCESS,
@@ -21,6 +21,13 @@ export const login = (email, password) => async (dispatch) =>{
         localStorage.setItem('userInfo', JSON.stringify(data))
 
     } catch(error){
+        dispatch({
+            type: USER_LOGIN_FAIL,
+            payload:
+            error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+        })
 
     }
     

@@ -15,8 +15,11 @@ router.post('/login', (req, res) => {
                 // compare the password the hash stored in the database
                 if (user && bcryptjs.compareSync(password, user.password)) {
                     const token = makeJwt(user);
+                    const userEmail = user.email
+                    const userName = user.name
+                    const Admin = user.isAdmin
   
-                    res.status(200).json({ message: "Welcome to our API", token });
+                    res.status(200).json({ message: "Welcome to our API", token, userEmail, userName, Admin });
                 } else {
                     res.status(401).json({ message: "Invalid credentials" });
                 }
@@ -25,7 +28,7 @@ router.post('/login', (req, res) => {
                 res.status(500).json({ message: error.message });
             });
     } else {
-        res.status(400).json({
+        res.status(401).json({
             message: "missing username and password",
         });
     }

@@ -12,6 +12,7 @@ import bimg from '../src/img/4076394.jpg'
 import bimg2 from '../src/img/26584.jpg'
 import bimg3 from '../src/img/90824.jpg'
 import bimg4 from '../src/img/3623843.jpg'
+import LoginScreen from './pages/LoginScreen';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
     <main className='py-3'>
       <Container>
         
+        <Route  path='/login' component={LoginScreen}/>
         <Route  path='/product/:id' component={ProductPage}/>
         <Route  path='/cart/:id?' component={CartPage}/>
         
