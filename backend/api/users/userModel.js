@@ -28,6 +28,6 @@ function findById(id) {
 function findBy(filter) {
     return db("user as u")
         .where(filter)
-        .select("u.id", "u.email", "u.password")
+        .select("u.id", "u.email", "u.password", "u.name" )
         .orderBy("u.id");
 }

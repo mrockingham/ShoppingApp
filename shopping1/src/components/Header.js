@@ -1,14 +1,20 @@
 import React from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
-import { Navbar, Nav, Container } from "react-bootstrap";
+import {LinkContainer} from 'react-router-bootstrap'
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import {motion} from 'framer-motion'
+import {logout} from '../action/userActions'
 
 const Header = () => {
-
+    const dispatch = useDispatch()
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo} = userLogin
 
+    const logoutHandler =( ) =>{
+      dispatch(logout())
+    }
+console.log(userInfo)
     const linkStyle1 ={
         color: "#a4b494", backgroundColor: '#3b5249', height:'100%', width: '33.3%', textAlign: 'center'  , fontFamily: 'Playfair Display'
     }
@@ -38,6 +44,21 @@ const Header = () => {
           </Navbar.Brand>
           </Link>
 
+          {userInfo ? (
+                    <NavDropdown title={userInfo?.userName} id='username'>
+                      <Link to ='/profile'>
+                        <NavDropdown.Item>Profile</NavDropdown.Item>
+                      </Link>
+                      <NavDropdown.Item onClick={logoutHandler}>Log Out</NavDropdown.Item>
+                    </NavDropdown>
+          ) : (
+            <Link to = '/login'>
+              <Nav.Link href='/'>
+                Sign In
+              </Nav.Link>
+            </Link>
+          )
+          }
           
 
 
