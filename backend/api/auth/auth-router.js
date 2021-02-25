@@ -67,7 +67,7 @@ function makeJwt(user) {
     const payload = {
         subject: user.id,
         username: user.name,
-        department: user.isAdmin,
+        admin: user.isAdmin,
     };
   
     const secret = process.env.JWT_SECRET || "Shhh...";

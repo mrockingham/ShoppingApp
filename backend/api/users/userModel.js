@@ -5,6 +5,7 @@ module.exports = {
     find,
     findById,
     findBy,
+    update
 };
 
 function find() {
@@ -30,4 +31,10 @@ function findBy(filter) {
         .where(filter)
         .select("u.id", "u.email", "u.password", "u.name" )
         .orderBy("u.id");
+}
+
+function update(changes, id){
+    return db('user as u')
+        .where('id', id)
+        .update(changes)
 }

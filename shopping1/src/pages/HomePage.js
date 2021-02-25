@@ -24,9 +24,9 @@ const HomePage = () => {
     return (
         <>
         <motion.h1
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            transition={{delay: 1.5}}
+            
+            whileHover={{scale: 1}}
+            
         style={{fontFamily: 'Playfair Display'}}>Latest Products</motion.h1>
         {loading ? (<Loader />) : error ? (<Message variant ='danger'>{error}</Message>
         ) :(
