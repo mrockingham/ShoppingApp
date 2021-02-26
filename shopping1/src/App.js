@@ -14,6 +14,8 @@ import bimg3 from '../src/img/90824.jpg'
 import bimg4 from '../src/img/3623843.jpg'
 import LoginScreen from './pages/LoginScreen';
 import RegisterPage from './pages/RegisterPage';
+import ProfileScreen from './pages/ProfilePage';
+
 
 const App = () => {
   return (
@@ -26,6 +28,7 @@ const App = () => {
         
         <Route  path='/login' component={LoginScreen}/>
         <Route  path='/register' component={RegisterPage}/>
+        <Route  path='/profile' component={ProfileScreen}/>
         <Route  path='/product/:id' component={ProductPage}/>
         <Route  path='/cart/:id?' component={CartPage}/>
         
