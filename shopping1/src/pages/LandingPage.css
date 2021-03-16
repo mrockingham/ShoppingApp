@@ -1,0 +1,89 @@
+.landing-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 80vh;
+    /* background: rgba( 255, 255, 255, 0.00 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 14.0px );
+    -webkit-backdrop-filter: blur( 14.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+
+}
+
+.main-landing{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    color: white;
+    margin-left: 7em;
+    margin-right: 7em;
+    
+}
+.main-left{
+    width: 45%;
+    padding-top: 200px;
+
+}
+.main-left > h1{
+    font-size: 4.5rem;
+    font-weight: 600;
+}
+.main-right{
+    width: 45%;
+}
+
+.main-left-button{
+    margin-top: 10%;
+    margin-left: 200px;
+    padding: 2%;
+    border-radius: 20px;
+    color: white;
+    background: none;
+    font-size: 1.3rem;
+    
+}
+.main-right{
+    display: flex;
+}
+.smart-body{
+    width: 350px;
+    height: 60px;
+    position: fixed;
+    top:20%
+}
+.smart-body img{
+    width: 100%;
+    height: auto;
+}
+
+.smart-watch{
+    position: fixed;
+    right: 400px;
+}
+
+.smart-ring{
+    position: fixed;
+    right: 200px;
+    width: 200px;
+    height: 60px;
+}
+.smart-ring img{
+    width: 100%;
+    height: auto;
+}
+.smart-glasses{
+    position: fixed;
+    right: -100px;
+    bottom: 300px;
+    width: 500px;
+    height: 120px;
+    transform: rotate(-25deg);
+}
+
+.smart-glasses img{
+    width: 100%;
+    height: auto;
+}

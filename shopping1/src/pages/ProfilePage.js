@@ -82,7 +82,7 @@ const ProfileScreen = ({location, history}) => {
                     <Form.Control
                     type='email'
                     placeholder='Enter Email'
-                    value={email.toLowerCase()}
+                    value={email?.toLowerCase()}
                     onChange={(e) => setEmail(e.target.value)}>
 
                     </Form.Control>

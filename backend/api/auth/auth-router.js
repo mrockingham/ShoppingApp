@@ -6,8 +6,8 @@ const {isValid} = require('./validation')
 
 
 router.post('/login', (req, res) => {
-    const { email, password } = req.body;
-  
+    let { email, password } = req.body;
+  email = email.toLowerCase()
     if (isValid(req.body)) {
         Users.findBy({ email: email })
             .then(([user]) => {
@@ -16,7 +16,7 @@ router.post('/login', (req, res) => {
                 if (user && bcryptjs.compareSync(password, user.password)) {
                     const token = makeJwt(user);
                     const id = user.id
-                    const userEmail = user.email
+                    const userEmail = user.email.toLowerCase()
                     const userName = user.name
                     const Admin = user.isAdmin
   
@@ -43,18 +43,20 @@ router.post('/login', (req, res) => {
   
         // hash the password
         const hash = bcryptjs.hashSync(credentials.password, rounds);
+        
   
         credentials.password = hash;
+        credentials.email = credentials.email.toLowerCase();
   
         // save the user to the database
         Users.add(credentials)
             .then(user => {
                 const token = makeJwt(user);
   
-                res.status(201).json({ data: user });
+                res.status(201).json({ data: user, token });
             })
             .catch(error => {
-                res.status(500).json('error');
+                res.status(500).json(error);
             });
     } else {
         res.status(400).json({

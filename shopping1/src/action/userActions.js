@@ -2,9 +2,10 @@ import axios from 'axios'
 import { USER_DETAILS_FAIL, USER_DETAILS_REQUEST, USER_DETAILS_SUCCESS, USER_LOGIN_ACCESS, USER_LOGIN_FAIL, USER_LOGIN_LOGOUT, USER_LOGIN_SUCCESS,
     USER_REGISTER_ACCESS, USER_REGISTER_FAIL, USER_REGISTER_LOGOUT, USER_REGISTER_SUCCESS, USER_UPDATE_PROFILE_REQUEST  
 } from "../constants/userConstants"
-
+import {useDispatch, useSelector} from 'react-redux'
 export const login = (email, password) => async (dispatch) =>{
     try{
+        console.log(email, password)
         dispatch({
             type: USER_LOGIN_ACCESS
         })
@@ -43,15 +44,12 @@ export const logout =() => (dispatch) =>{
 
 export const register = (name, email, password) => async (dispatch) =>{
     try{
+        console.log(name, email, password)
         dispatch({
             type: USER_REGISTER_ACCESS
         })
-        const config = {
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        }
-        const {data} = await axios.post('http://localhost:3300/osfow/auth/register', {name, email, password, config })
+
+        const {data} = await axios.post('http://localhost:3300/osfow/auth/register', {name, email, password })
         
         dispatch({
             type: USER_REGISTER_SUCCESS,
@@ -76,20 +74,22 @@ export const register = (name, email, password) => async (dispatch) =>{
     }
     
 }
-export const getUserDetails = (id) => async (dispatch, getState) =>{
+export const getUserDetails = () => async (dispatch, getState) =>{
     try{
         dispatch({
+            
             type: USER_DETAILS_REQUEST,
         })
 
         const { userLogin: {userInfo}} = getState()
+      
         const config = {
             headers:{
                 'Content-Type': 'application/json',
                 authorization: userInfo.token
             }
         }
-        const {data} = await axios.get(`http://localhost:3300/osfow/users/${id}`,
+        const {data} = await axios.get(`http://localhost:3300/osfow/users/${userInfo.data.id}`,
         config )
         
         dispatch({
@@ -125,7 +125,7 @@ export const updateUserProfile = (id) => async (dispatch, getState) =>{
                 authorization: userInfo.token
             }
         }
-        const {data} = await axios.put(`http://localhost:3300/osfow/users/${id}`,
+        const {data} = await axios.put(`http://localhost:3300/osfow/users/${userInfo.id}`,
         config )
         
         dispatch({

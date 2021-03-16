@@ -16,8 +16,9 @@ const  cardStyle ={
 
     return (
         <motion.div
-        whileHover={{ scale: 1.1  }}
-            whileTap={{ scale: 0.4,  borderRadius: "100%" }}>
+        // whileHover={{ scale: 1.1  }}
+        //     whileTap={{ scale: 0.4,  borderRadius: "100%" }}
+            >
             <Card style={cardStyle} className="product-card"
             
             >

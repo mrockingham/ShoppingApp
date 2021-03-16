@@ -56,4 +56,20 @@ router.put('/:id', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res)=>{
+    const {id} = req.params
+
+    UsersDb.remove(id)
+        .then(deleted =>{
+            if(deleted){
+                res.json({removed: deleted})
+            } else{
+                res.status(404).json({message: 'could not find user'})
+            }
+        })
+        .catch(err =>{
+            res.status(500).json({message: 'failed to delete user   '})
+        })
+})
+
 module.exports =router

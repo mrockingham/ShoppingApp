@@ -6,6 +6,7 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import {motion} from 'framer-motion'
 import {logout} from '../action/userActions'
 
+
 const Header = () => {
     const dispatch = useDispatch()
     const userLogin = useSelector(state => state.userLogin)
@@ -14,7 +15,7 @@ const Header = () => {
     const logoutHandler =( ) =>{
       dispatch(logout())
     }
-console.log(userInfo)
+
     const linkStyle1 ={
         color: "#a4b494", backgroundColor: '#3b5249', height:'100%', width: '33.3%', textAlign: 'center'  , fontFamily: 'Playfair Display'
     }
@@ -45,7 +46,7 @@ console.log(userInfo)
           </Link>
 
           {userInfo ? (
-                    <NavDropdown title={userInfo?.userName} id='username'>
+                    <NavDropdown title={userInfo.userName} id='username'>
                       
                         <NavDropdown.Item>
                           <Link to ='/profile'>
@@ -76,7 +77,7 @@ console.log(userInfo)
 
 
               <Link style={linkStyle2} to='/cart'>
-              <Nav.Link  style={{fontSize: '2vw', color:'#382933'}} >
+              <Nav.Link href='/cart'  style={{fontSize: '2vw', color:'#382933'}} >
                <div className='Link-mobile'>Cart <i style={{paddingLeft: '3%'}} className="fas fa-cart-plus"></i></div> 
               </Nav.Link>
               </Link>

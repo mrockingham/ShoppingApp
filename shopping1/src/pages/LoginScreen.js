@@ -21,6 +21,7 @@ const LoginScreen = ({location, history}) => {
 
 
     useEffect(()=>{
+        console.log(userInfo)
         if(userInfo) {
             history.push(redirect)
         }
@@ -32,7 +33,7 @@ const LoginScreen = ({location, history}) => {
         dispatch(login(email.toLowerCase(), password))
     }
 
-    console.log(typeof error)
+    
 
     return (
         

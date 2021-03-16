@@ -12,31 +12,48 @@ import bimg from '../src/img/4076394.jpg'
 import bimg2 from '../src/img/26584.jpg'
 import bimg3 from '../src/img/90824.jpg'
 import bimg4 from '../src/img/3623843.jpg'
+import lux1 from '../src/img/lux1.jpg'
+import lux2 from '../src/img/lux2.jpg'
+import lux3 from '../src/img/lux3.jpg'
+import lux4 from '../src/img/lux4.jpg'
+import lux5 from '../src/img/lux5.jpg'
 import LoginScreen from './pages/LoginScreen';
 import RegisterPage from './pages/RegisterPage';
 import ProfileScreen from './pages/ProfilePage';
+import ShippingPage from './pages/ShippingPage';
+import Header2 from './components/Header2';
+import LandingPage from './pages/LandingPage';
 
 
 const App = () => {
   return (
     <Router>
-      <Header/>
-    < div className='app' style={{backgroundImage: `url(${bimg2})`, backgroundPosition: 'center'}}>
-    
-    <main className='py-3'>
-      <Container>
+     < div className='app' style={{backgroundImage: `url(${lux4})`, backgroundPosition: 'center'}}> 
+     <div className='app-container'>
+
+     
+      {/* <Header/> */}
+         
+    <Header2/> 
+   
+    <main className='main-container'>
+      
         
         <Route  path='/login' component={LoginScreen}/>
+        
         <Route  path='/register' component={RegisterPage}/>
         <Route  path='/profile' component={ProfileScreen}/>
+        <Route  path='/shipping' component={ShippingPage}/>
         <Route  path='/product/:id' component={ProductPage}/>
-        <Route  path='/cart/:id?' component={CartPage}/>
+        <Route  path='/cart' component={CartPage}/>
+        <Route  path='/landing' component={LandingPage}/>
         
         <Route  path='/' component={HomePage} exact/>
-      </Container>
+      
       </main>
       
     <Footer />
+    </div>
     </ div>
     </Router>
   );

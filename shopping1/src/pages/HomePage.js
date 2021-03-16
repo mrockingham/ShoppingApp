@@ -23,11 +23,11 @@ const HomePage = () => {
   
     return (
         <>
-        <motion.h1
+        <h1
             
-            whileHover={{scale: 1}}
             
-        style={{fontFamily: 'Playfair Display'}}>Latest Products</motion.h1>
+            
+        style={{fontFamily: 'Playfair Display'}}>Latest Products</h1>
         {loading ? (<Loader />) : error ? (<Message variant ='danger'>{error}</Message>
         ) :(
             <Row>

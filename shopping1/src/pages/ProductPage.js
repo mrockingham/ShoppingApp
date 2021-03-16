@@ -7,21 +7,29 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 
 
+
 import {listProductDetails} from '../action/productActions'
+import {addToCart, removeFromCart} from '../action/cartActions'
 
 
 const ProductPage = ({history, match}) => {
     const [qty, setQty] = useState(1)
    const dispatch = useDispatch()
    const productDetails = useSelector((state) => state.productDetails)
+
    const {loading, error, product} = productDetails
+   const productId = match.params.id
+
+   console.log('the id',match.params.id)
 
     useEffect(()=>{
        dispatch(listProductDetails(match.params.id))
-     },[dispatch, match])
+     },[dispatch, match.params.id])
     
      const addCart =() => {
-            history.push(`/cart/${match.params.id}?qty=${qty}`)
+        dispatch(addToCart(productId, qty))
+            // history.push(`/cart/${match.params.id}?qty=${qty}`)
+            console.log('the id',match.params.id)
      }
 
     return (
@@ -34,7 +42,7 @@ const ProductPage = ({history, match}) => {
                 <Col md={6}>
                     <Image src={product.image} alt={product.name} fluid/>
                 </Col>
-
+rt
                 <Col md={3}>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
