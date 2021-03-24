@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    font-family: 'Libre Baskerville', serif;
     width: 100%;
     color: white;
     margin-left: 7em;
@@ -28,7 +29,7 @@
 
 }
 .main-left > h1{
-    font-size: 4.5rem;
+    font-size: 5.4rem;
     font-weight: 600;
 }
 .main-right{
@@ -36,13 +37,14 @@
 }
 
 .main-left-button{
-    margin-top: 10%;
+    margin-top: 20%;
     margin-left: 200px;
     padding: 2%;
     border-radius: 20px;
+    border: 3px solid rgba( 255, 255, 255, 0.18 );
     color: white;
     background: none;
-    font-size: 1.3rem;
+    font-size: 2.8rem;
     
 }
 .main-right{
@@ -61,7 +63,13 @@
 
 .smart-watch{
     position: fixed;
-    right: 400px;
+    right: 500px;
+    top: -200px;
+    width: 450px;
+}
+.smart-watch img{
+    width: 100%;
+    height: auto;
 }
 
 .smart-ring{
@@ -84,6 +92,20 @@
 }
 
 .smart-glasses img{
+    width: 100%;
+    height: auto;
+}
+
+.smart-shoes{
+    position: fixed;
+    right: 100px;
+    bottom: 30px;
+    width: 400px;
+    height: 120px;
+    transform: rotate(25deg);
+
+}
+.smart-shoes img{
     width: 100%;
     height: auto;
 }

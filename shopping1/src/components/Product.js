@@ -3,14 +3,18 @@ import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 import { motion } from "framer-motion";
 import {Link} from 'react-router-dom'
+import './Product.css'
 
 const Product = ({product}) => {
 const  cardStyle ={
     margin: '2% 2%',
     padding: '15%',
     borderRadius: '50%, 50%',
-    fontFamily: 'Playfair Display',
-    color: '#519872'
+    // border: 'none',
+    fontFamily: 'Libre Baskerville',
+    color: 'white',
+    backdropFilter: 'blur(0px)',
+    backgroundColor: 'rgba(248, 246, 248, 0.3)'
 
 }
 
@@ -19,26 +23,26 @@ const  cardStyle ={
         // whileHover={{ scale: 1.1  }}
         //     whileTap={{ scale: 0.4,  borderRadius: "100%" }}
             >
-            <Card style={cardStyle} className="product-card"
+            <div  className="product-card"
             
             >
                 <Link to={`/product/${product.id}`}>
                     <Card.Img src={product.image} variant='top' />
                 </Link>
-                <Card.Body>
+                <div className='product-body'>
                 <Link to={`/product/${product.id}`}>   
-                    <Card.Title style={{color: '#519872', fontFamily: 'Playfair Display'}} as='div'><strong>{product.name}</strong>
-                    </Card.Title>
+                    <div  className='product-title'><strong>{product.name}</strong>
+                    </div>
                  </Link>   
 
-                 <Card.Text style={{letterSpacing: '2px'}} as ='div'>
-                     <Rating  value={product.rating} text={`${product.numReviews}-reviews`}  />
-                 </Card.Text>
+                 <div className='product-text' style={{letterSpacing: '2px'}} as ='div'>
+                     <Rating  value={product.rating} text={`${product.numReviews}-Reviews`}  />
+                 </div>
 
                  <Card.Text style={{marginTop: '2%'}} as='h3'>{product.price}</Card.Text>
-                </Card.Body> 
+                </div> 
             
-            </Card>
+            </div>
         </motion.div>
     )
 }

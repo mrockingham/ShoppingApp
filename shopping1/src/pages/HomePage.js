@@ -1,7 +1,9 @@
 import React, { useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import './HomePage.css'
 import { Row, Col } from 'react-bootstrap'
 import {listProducts} from '../action/productActions'
+import './HomePage.css'
 
 import Products from '../components/Product'
 import Message from '../components/Message'
@@ -23,14 +25,11 @@ const HomePage = () => {
   
     return (
         <>
-        <h1
-            
-            
-            
-        style={{fontFamily: 'Playfair Display'}}>Latest Products</h1>
+        <div className='Home-title'
+            >Latest Products</div>
         {loading ? (<Loader />) : error ? (<Message variant ='danger'>{error}</Message>
         ) :(
-            <Row>
+            <Row > 
                 {products.map(product=>(
                     <Col key={product._id} sm={12} md={6} lg={4}>
                         <Products product={product} />

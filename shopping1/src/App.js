@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, } from 'react-router-dom'
 
 import './App.css';
 import Footer from './components/Footer';
-import Header from './components/Header';
+
 import {Container} from 'react-bootstrap'
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage'
@@ -32,7 +32,7 @@ const App = () => {
      <div className='app-container'>
 
      
-      {/* <Header/> */}
+     
          
     <Header2/> 
    

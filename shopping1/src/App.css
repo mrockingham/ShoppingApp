@@ -1,6 +1,9 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap')
+
+.app{
   text-align: center;
 }
+
 .app-container{
   /* background: rgba( 255, 255, 255, 0.00 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
